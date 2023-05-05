@@ -1,0 +1,92 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    background: none;
+}
+
+.logo_title{
+    color: #b8a630;
+    font-size: 50px;
+    width: 50%;
+}
+
+
+.header_container{
+    margin: 0 6%;
+    padding-bottom: 0.5rem;
+    display: block;
+}
+
+.container_filters{
+    width: 250%;
+    margin-top: 1.3rem;
+    border-radius: 25px;
+}
+
+.container_filters select{
+    padding: 0.5rem 0.9rem;
+    border: none;
+    background-color: #0a0f53;
+    color: #b8a630;
+}
+
+.container_filters select:first-child{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.container_filters select:last-child{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.crear {
+    margin: 0.5rem 6%;
+}
+
+.button_crear{
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.9rem; 
+    background: none;
+    padding: 0.6rem;
+    border: 0.1rem solid #babcd6;
+    background: #0a0f53;
+    color: #b8a630;
+}
+
+.cargar {
+    margin: 0.5rem 6%;
+}
+
+.button_cargar{
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.9rem; 
+    background: none;
+    padding: 0.6rem;
+    border: 0.1rem solid #0a0f53;
+    background: #0a0f53;
+    color: #b8a630;
+}
+
+.container{
+    margin: 0 5% 0 5%;
+}
+
+.cards_container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5% 0.9%;
+    justify-items: center;
+    padding: 2rem 0 2rem 0;
+}
+
+.card_container{ 
+    background-color: #0a0f53;
+    width: 92.5%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}

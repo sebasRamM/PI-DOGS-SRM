@@ -1,0 +1,24 @@
+.main_container{
+    background-image: url("./images.jpeg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position-y: right;
+}
+
+.main_left_container{
+    width: 43vw;
+    padding-top: 2rem;
+}
+
+.main_left_container h1{
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 5%;
+}
+
+.main_left_container p{
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}

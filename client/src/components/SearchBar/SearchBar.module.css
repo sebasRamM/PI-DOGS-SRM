@@ -1,0 +1,23 @@
+.searchbar{
+    height: 25px;
+    width: 255%;
+}
+
+.input{
+    height: 100%;
+    width: 40%;
+    font-size: 1.3rem;
+    border: 1px solid #0a0f53;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.button_search{
+    border-radius: 0;
+    height: 116%;
+    width: 4rem;
+    background-color: #0a0f53;
+    color: #b8a630;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
