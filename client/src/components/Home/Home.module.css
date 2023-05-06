@@ -90,3 +90,8 @@
     overflow: hidden;
     position: relative;
 }
+
+.pagination{
+    margin-left: 0;
+    padding-left: 0;
+}

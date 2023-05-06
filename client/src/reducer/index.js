@@ -8,6 +8,11 @@ const initialState = {
 function rootReducer( state= initialState, action) {
     switch(action.type) {
         case 'GET_DOGS':
+             action.payload.forEach(el => {
+                 if (!el.temperaments[0]) {
+                   el.temperaments[0] = "sin-temperamentos" 
+                 }
+               });
             return {
                 ...state, 
                 dogs: action.payload, 

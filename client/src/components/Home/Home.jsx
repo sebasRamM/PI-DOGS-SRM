@@ -99,7 +99,7 @@ function Home () {
             </header>
                 <div className={style.cargar}>
                         <button className={style.button_cargar} onClick={e => {handleClick(e)}}>
-                            Volver a cargar Personajes
+                            Volver a cargar Dogs
                         </button>    
                 </div>
                 <div className={style.crear}>
@@ -112,11 +112,11 @@ function Home () {
                         {
                             currentDogs?.map( el => {
                                 return(
-                                    <div className={style.card_container} key={el.id}>
+                                    <div className={style.card_container}>
                                         <Link to={'/dogDetail/' + el.id}>
                                             {
                                                 <Card key={el.id} name={el.name} image={el.image} 
-                                                temperaments={el.temperaments[0].name ? el.temperaments.map(el => el.name) 
+                                                temperaments={el.temperaments[0].name ? el.temperaments.map((el) => el.name) 
                                                 : el.temperaments} weight={el.weight} height={el.height}/> 
                                             }                           
                                         </Link>                               
@@ -125,7 +125,9 @@ function Home () {
                             })
                         }
                     </div>
-                    <Pagination dogsPerPage={dogsPerPage} allDogs={allDogs.length} pagination={pagination}/>
+                    <div className={style.pagination}>
+                        <Pagination dogsPerPage={dogsPerPage} allDogs={allDogs.length} pagination={pagination}/>
+                    </div>
                 </div>
         </>
 

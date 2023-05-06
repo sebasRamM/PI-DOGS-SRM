@@ -113,7 +113,7 @@ router.post('/dog', async (req, res) => {
     weightArray.push(minWeight, maxWeight)
 
     let dog = await Dog.create({
-        name: name,
+        name,
         height: heightArray,
         weight: weightArray,
         life_span: life_span,
