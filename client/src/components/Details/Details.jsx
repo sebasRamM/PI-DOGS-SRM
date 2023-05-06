@@ -16,9 +16,10 @@ function Detail() {
 
     const details = useSelector(state => state.details)
 
-    let nameDog, imageDog, temperamentDog = [], heightDog, weightDog, lifeSpanDog;
+    let nameDog, imageDog, temperamentDog = [], heightDog, weightDog, lifeSpanDog, idDog;
 
     if (details[0]) {
+        idDog = details[0].id
         nameDog = details[0].name;
         imageDog = details[0].image;
         heightDog = details[0].height;
@@ -47,6 +48,7 @@ function Detail() {
                         <img src={imageDog} alt={`imagen de ${nameDog}`}/>
                     </div>
                     <div className={style.container_card}>
+                        <h2>ID: #{idDog}</h2>
                         <h1>{nameDog}</h1>
                         <h3>{`Altura: ${heightDog && heightDog[0]} - ${heightDog && heightDog[1]} CM`}</h3>
                         <h3>{`Peso: ${heightDog &&  weightDog[0]} - ${weightDog && weightDog[1]} KG`}</h3>

@@ -32,8 +32,8 @@ a{
     padding: 0;
 }
 .details_hyw{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
 }
 
 .details h4 {

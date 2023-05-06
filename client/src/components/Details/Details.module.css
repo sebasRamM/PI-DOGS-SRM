@@ -5,11 +5,11 @@
     display: grid;
     align-content: center;
     justify-content: center;
-    height: 100vh;
+    height: 115vh;
 }
 
 .container_cards{
-    width: 105%;
+    width: 100%;
     border: 0.5rem solid #0a0f53;
     border-radius: 15px;
 }
@@ -57,7 +57,7 @@ button{
 }
 
 .container_card h3{
-    margin: 0.6rem;
+    margin: 0.3rem;
 }
 
 .temperaments{

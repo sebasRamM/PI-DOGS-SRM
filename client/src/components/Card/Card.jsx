@@ -16,9 +16,8 @@ function Card({image, name, temperaments, height, weight}) {
                  temperaments.map(temps => <h4 key={temps}>{temps}</h4>)
             }
             </div>
-                <h3>Altura y Peso</h3>
+                <h3>Peso</h3>
             <div className={style.details_hyw}>
-            <h4>{`Altura: ${height && height[0]} - ${height && height[1]} CM`}</h4>
             <h4>{`Peso: ${weight && weight[0]} - ${weight && weight[1]} KG`}</h4>
 
             </div>
