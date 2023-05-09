@@ -76,7 +76,7 @@ function Home () {
                             <option value='desc'>Z-A</option>
                         </select>
                         <select onChange={handleOrderByWeight}>
-                            <option disabled>Filtrar por Peso</option>
+                            <option disabled selected defaultValue>Filtrar por Peso</option>
                             <option value='max-weight'>Max</option>
                             <option value='min-weight'>Min</option>
                         </select>
