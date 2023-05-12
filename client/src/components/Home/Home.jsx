@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import SearchBar from "../SearchBar/SearchBar";
+import Loading from "../Loading/Loading";
 import style from '../Home/Home.module.css'
 
 function Home () {
@@ -27,7 +28,13 @@ function Home () {
 
     const [order, setOrder] = useState("")
 
+    const [loading, setLoading] = useState(false)
+
      useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000)
          dispatch(getDogs())
          dispatch(getTemperaments())
      },[dispatch])
@@ -110,6 +117,9 @@ function Home () {
                 <div className={style.container}>
                     <div className={style.cards_container}>
                         {
+                            loading ? (
+                                <Loading/>
+                            ) :
                             currentDogs?.map( el => {
                                 return(
                                     <div className={style.card_container}>

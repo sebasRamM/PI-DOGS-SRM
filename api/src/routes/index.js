@@ -3,14 +3,8 @@ const axios = require('axios')
 const {API_KEY} = process.env
 const { Dog, Temperaments} = require('../db')
 const express = require('express')
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-
 
 const router = Router();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 const getApiInfo = async () => {
     const apiData = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
@@ -58,7 +52,6 @@ const getDbInfo = async () => {
     const allInfo = [...apiInfo, ...dbInfo]
     return allInfo
  }
-
 
 // Rutas
 

@@ -19,7 +19,6 @@ function Card({image, name, temperaments, height, weight}) {
                 <h3>Peso</h3>
             <div className={style.details_hyw}>
             <h4>{`Peso: ${weight && weight[0]} - ${weight && weight[1]} KG`}</h4>
-
             </div>
         </div>
     )
