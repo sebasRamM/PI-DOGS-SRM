@@ -10,15 +10,29 @@ function validate(form) {
     if(!form.name) {
         errors.name = 'Se requiere un Nombre'
     }
-    if(!form.min_height || !form.max_height) {
-        errors.height = "Se requieren alturas Minima y Máxima"
+    if(!form.min_height ) {
+        errors.min_height = "Se requieren altura Minima"
+    } else if (!/\d{1,2}/gi.test(form.min_height)) {
+        errors.min_height = "Tiene que ser valor númerico"
     }
-    if(!form.min_weight || !form.max_weight) {
-        errors.weight = "Se requieren pesos Minimos y Máximos"
+    if( !form.max_height) {
+        errors.max_height = "Se requieren altura Maxima"
+    } else if ((!/\d{1,2}/gi.test(form.max_height))) {
+        errors.max_height = "Tiene que ser valor númerico"
+    }
+    if( !form.min_weight) {
+        errors.min_weight = "Se requieren peso Minimo"
+    } else if ((!/\d{1,2}/gi.test(form.min_weight))) {
+        errors.min_weight = "Tiene que ser valor númerico"
+    }
+    if(!form.max_weight) {
+        errors.max_weight = "Se requieren peso Maximo"
+    } else if((!/\d{1,2}/gi.test(form.max_weight))) {
+        errors.max_weight = "Tiene que ser valor númerico"
     }
     if(!form.life_span) {
         errors.life_span = "Se requiren años de vida"
-    }
+    } 
     return errors
 }
 
@@ -26,7 +40,15 @@ function Form() {
     const dispatch = useDispatch()
     const history = useHistory()
     const allTemperaments = useSelector(state => state.temperaments)
-    const [ errors, setErrors] = useState({})
+    const [ errors, setErrors] = useState({
+        name: "",
+        min_height: "",
+        max_height: "",
+        min_weight: "",
+        max_weight: "",
+        life_span:  "",
+        image: "",
+    })
 
     const [ form, setForm] = useState({
         name: "",
@@ -68,19 +90,24 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(postDog(form))
-        alert('Tu amigo perruno se ha creado')
-        setForm({
-            name: "",
-            min_height: "",
-            max_height: "",
-            min_weight: "",
-            max_weight: "",
-            life_span: "",
-            image: "",
-            temperaments: []
+        if(!form.name || !form.max_height || !form.min_height || !form.max_weight || !form.min_weight ||!form.life_span) {
+            alert('Faltan campos por completar')
+            } else {
+            dispatch(postDog(form))
+            alert('Tu amigo perruno se ha creado')
+            setForm({
+                name: "",
+                min_height: "",
+                max_height: "",
+                min_weight: "",
+                max_weight: "",
+                life_span: "",
+                image: "",
+                temperaments: []
         })
-        history.push('/home')
+            history.push('/home')
+        }
+        
     }
 
     useEffect(() => {
@@ -108,13 +135,18 @@ function Form() {
                         <div className={style.min_height}>
                             <label>Min Height</label>
                             <input type="text" value={form.min_height} name="min_height" onChange={e => handleChange(e)}/>
+                            <div className={style.error_form}>
+                                {errors.min_height && (
+                                    <p>{errors.min_height}</p>
+                                )}
+                            </div>
                         </div>
                         <div className={style.max_height}>
                             <label>Max Height</label>
                             <input type="text" value={form.max_height} name="max_height" onChange={e => handleChange(e)}/>
                             <div className={style.error_form}>
-                                {errors.height && (
-                                    <p>{errors.height}</p>
+                                {errors.max_height && (
+                                    <p>{errors.max_height}</p>
                                 )}
                             </div>
                         </div>
@@ -123,13 +155,18 @@ function Form() {
                         <div className={style.min_weight}>
                             <label>Min Weight</label>
                             <input type="text" value={form.min_weight} name="min_weight" onChange={e => handleChange(e)}/>
+                            <div className={style.error_form}>
+                                {errors.min_weight && (
+                                    <p>{errors.min_weight}</p>
+                                )}
+                            </div>
                         </div>
                         <div className={style.max_weight}>
                             <label>Max Weight</label>
                             <input type="text" value={form.max_weight} name="max_weight" onChange={e => handleChange(e)}/>
                             <div className={style.error_form}>
-                                {errors.weight && (
-                                    <p>{errors.weight}</p>
+                                {errors.max_weight && (
+                                    <p>{errors.max_weight}</p>
                                 )}
                             </div>
                         </div>

@@ -20,7 +20,7 @@ function Home () {
     const dogsPerPage = 8 // cantidad de dogs que quiero por pagina
     const indexOfLastDog = currentPage * dogsPerPage
     const indexOfFirstDog = indexOfLastDog - dogsPerPage
-    const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog) 
+    const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
 
     const pagination = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -39,32 +39,40 @@ function Home () {
          dispatch(getTemperaments())
      },[dispatch])
 
+     useEffect(() => {
+        setCurrentPage(1)
+     }, [allDogs.length])
+
      const handleClick = (e) => {
          e.preventDefault()
          dispatch(getDogs())
+         setCurrentPage(1)
      }
 
      const handleFilterTemperaments = (e) => {
         e.preventDefault()
         dispatch(filteredByTemperament(e.target.value))
+        setCurrentPage(1)
      }
 
      const handleOrderByName = (e) => {
         e.preventDefault()
         dispatch(orderByName(e.target.value))
-        setCurrentPage(1) 
-        setOrder(`Ordenado ${e.target.value}`) 
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
       };
     
       const handleOrderByWeight = (e) => {
         e.preventDefault();
         dispatch(orderByWeight(e.target.value));
+        setCurrentPage(1)
         setOrder(`Ordenado ${e.target.value}`);
       };
 
       const handleCreated = (e) => {
         e.preventDefault()
         dispatch(filteredCreated(e.target.value))
+        setCurrentPage(1)
       }
 
     return (
@@ -74,7 +82,7 @@ function Home () {
                     <Link to='/'>
                     <div className={style.logo_title}>DOG-GO</div>
                     </Link>
-                    <div className={style.header_left}>
+                    <div className={style.header_left} >
                         <SearchBar/>  
                     </div>
                     <div className={style.container_filters}>
@@ -136,7 +144,7 @@ function Home () {
                         }
                     </div>
                     <div className={style.pagination}>
-                        <Pagination dogsPerPage={dogsPerPage} allDogs={allDogs.length} pagination={pagination}/>
+                        <Pagination dogsPerPage={dogsPerPage} allDogs={allDogs.length} pagination={pagination} />
                     </div>
                 </div>
         </>

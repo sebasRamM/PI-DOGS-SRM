@@ -12,7 +12,6 @@ function SearchBar() {
     const handlerInputChange = (e) => {
         e.preventDefault()
         setName(e.target.value) //agarro el value del input con este estado
-        console.log(name);
     }
 
     const handlerSubmit = (e) => {
